@@ -3,7 +3,7 @@ package ir.alirezanazari.newsapi.internal
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import ir.alirezanazari.newsapi.R
-import ir.alirezanazari.newsapi.ui.category.CategoriesFragment
+import ir.alirezanazari.newsapi.ui.sources.SourcesFragment
 import ir.alirezanazari.newsapi.ui.news.NewsListFragment
 
 
@@ -11,8 +11,8 @@ class Navigator {
 
     companion object {
 
-        fun openCategories(fm: FragmentManager) {
-            load(true, fm, CategoriesFragment())
+        fun openSources(fm: FragmentManager) {
+            load(true, fm, SourcesFragment())
         }
 
         fun openNewsList(id: String, fm: FragmentManager?) {
