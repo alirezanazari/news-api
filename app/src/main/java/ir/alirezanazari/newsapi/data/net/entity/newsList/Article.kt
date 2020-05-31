@@ -7,7 +7,7 @@ data class Article(
     @SerializedName("source")
     val source: Source,
     @SerializedName("author")
-    val author: Any?,
+    val author: String?,
     @SerializedName("title")
     val title: String,
     @SerializedName("description")

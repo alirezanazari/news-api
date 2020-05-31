@@ -9,6 +9,7 @@ object Constants {
     }
 
     object DB{
-
+        const val SOURCES_TABLE = "sources"
+        const val ARTICLES_TABLE = "articles"
     }
 }
