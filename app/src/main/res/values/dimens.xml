@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="standard_textSize">16sp</dimen>
+    <dimen name="large_textSize">18sp</dimen>
+    <dimen name="toolbar_height">58dp</dimen>
+</resources>

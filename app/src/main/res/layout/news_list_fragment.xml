@@ -1,11 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/appPagesRootStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="@style/appPagesRootStyle"
     tools:context=".ui.news.NewsListFragment">
 
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical|left"
+        android:orientation="horizontal"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="@dimen/toolbar_height"
+            android:layout_height="@dimen/toolbar_height"
+            android:padding="16dp"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/news"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/large_textSize"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvNews"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+
+    <ProgressBar
+        android:id="@+id/pbLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/rvNews"
+        app:layout_constraintEnd_toEndOf="@id/rvNews"
+        app:layout_constraintStart_toStartOf="@id/rvNews"
+        app:layout_constraintTop_toTopOf="@id/rvNews" />
+
+    <TextView
+        android:id="@+id/tvError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/no_item"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/standard_textSize"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/rvNews"
+        app:layout_constraintStart_toStartOf="@id/rvNews"
+        app:layout_constraintTop_toBottomOf="@id/btnRetry" />
+
+    <ImageView
+        android:id="@+id/btnRetry"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:padding="6dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/rvNews"
+        app:layout_constraintEnd_toEndOf="@id/rvNews"
+        app:layout_constraintStart_toStartOf="@id/rvNews"
+        app:layout_constraintTop_toTopOf="@id/rvNews"
+        app:srcCompat="@drawable/ic_retry" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,11 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/appPagesRootStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="@style/appPagesRootStyle"
     tools:context=".ui.sources.SourcesFragment">
 
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical|left"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sources"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/large_textSize"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSources"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:spanCount="3" />
+
+
+    <ProgressBar
+        android:id="@+id/pbLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/rvSources"
+        app:layout_constraintEnd_toEndOf="@id/rvSources"
+        app:layout_constraintStart_toStartOf="@id/rvSources"
+        app:layout_constraintTop_toTopOf="@id/rvSources" />
+
+    <TextView
+        android:id="@+id/tvError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/no_item"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/standard_textSize"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/rvSources"
+        app:layout_constraintStart_toStartOf="@id/rvSources"
+        app:layout_constraintTop_toBottomOf="@id/btnRetry" />
+
+    <ImageView
+        android:id="@+id/btnRetry"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:padding="6dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/rvSources"
+        app:layout_constraintEnd_toEndOf="@id/rvSources"
+        app:layout_constraintStart_toStartOf="@id/rvSources"
+        app:layout_constraintTop_toTopOf="@id/rvSources"
+        app:srcCompat="@drawable/ic_retry" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
