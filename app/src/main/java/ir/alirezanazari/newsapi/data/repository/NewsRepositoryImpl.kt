@@ -20,6 +20,7 @@ class NewsRepositoryImpl(
         } else {
             sourcesDao.clear()
             sourcesDao.insert(netResponse.map(::transformToSourceEntity))
+            return netResponse
         }
 
         return null
