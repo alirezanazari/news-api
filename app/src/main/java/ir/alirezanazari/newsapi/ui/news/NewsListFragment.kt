@@ -27,6 +27,7 @@ class NewsListFragment : BaseFragment() {
     }
 
     private val viewModel: NewsListViewModel by inject()
+    private val newsAdapter: NewsAdapter by inject()
     private lateinit var mId: String
     private lateinit var mTitle: String
     private var mCurrentPage = 1
@@ -41,6 +42,7 @@ class NewsListFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupListeners()
+        setupRecyclerview()
         arguments?.let {
             mId = it.getString(ID_KEY , "")
             mTitle = it.getString(TITLE_KEY , "News")
@@ -48,6 +50,12 @@ class NewsListFragment : BaseFragment() {
 
             mCurrentPage = 1
             viewModel.getNewsOfSource(mId , mCurrentPage)
+        }
+    }
+
+    private fun setupRecyclerview(){
+        rvNews.apply {
+            adapter = newsAdapter
         }
     }
 
@@ -62,7 +70,9 @@ class NewsListFragment : BaseFragment() {
         }
 
         viewModel.newsResponse.observe(viewLifecycleOwner , Observer {
-            Logger.showLog("News response ${it.size}")
+            it?.let {news ->
+                newsAdapter.setItems(news)
+            }
         })
 
         viewModel.loaderVisibilityListener.observe(viewLifecycleOwner, Observer {

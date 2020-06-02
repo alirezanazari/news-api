@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/news_card_size"
+    android:layout_margin="10dp"
+    android:padding="16dp"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivPicture"
+            android:layout_width="@dimen/news_card_size"
+            android:layout_height="@dimen/news_card_size"
+            android:padding="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/placeholder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:maxLines="2"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/standard_textSize"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/tvDescription"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivPicture"
+            app:layout_constraintTop_toTopOf="@id/ivPicture"
+            tools:text="Title" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:maxLines="4"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/small_textSize"
+            app:layout_constraintBottom_toTopOf="@id/tvAuthor"
+            app:layout_constraintEnd_toEndOf="@id/tvTitle"
+            app:layout_constraintStart_toStartOf="@id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            tools:text="Description" />
+
+        <TextView
+            android:id="@+id/tvAuthor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:lines="1"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/small_textSize"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="@id/tvTitle"
+            app:layout_constraintStart_toStartOf="@id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvDescription"
+            tools:text="- Author" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

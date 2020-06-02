@@ -4,7 +4,6 @@ import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
 import ir.alirezanazari.newsapi.internal.Constants.DB.ARTICLES_TABLE
-import java.time.LocalDateTime
 
 @Entity(tableName = ARTICLES_TABLE, indices = [Index(value = ["addedDate"], unique = true)])
 data class ArticleEntity(
