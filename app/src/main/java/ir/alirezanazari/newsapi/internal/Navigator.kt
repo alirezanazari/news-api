@@ -15,8 +15,8 @@ class Navigator {
             load(true, fm, SourcesFragment())
         }
 
-        fun openNewsList(id: String, fm: FragmentManager?) {
-            load(false, fm, NewsListFragment.newInstance(id))
+        fun openNewsList(id: String, name: String, fm: FragmentManager?) {
+            load(false, fm, NewsListFragment.newInstance(id, name))
         }
 
         private fun load(isReplace: Boolean, fm: FragmentManager?, fragment: Fragment) {

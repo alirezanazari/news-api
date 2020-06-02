@@ -6,6 +6,7 @@ import ir.alirezanazari.newsapi.data.net.NetworkDataManager
 import ir.alirezanazari.newsapi.data.net.NetworkDataManagerImpl
 import ir.alirezanazari.newsapi.data.repository.NewsRepository
 import ir.alirezanazari.newsapi.data.repository.NewsRepositoryImpl
+import ir.alirezanazari.newsapi.ui.news.NewsListViewModel
 import ir.alirezanazari.newsapi.ui.sources.SourcesAdapter
 import ir.alirezanazari.newsapi.ui.sources.SourcesViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -22,4 +23,5 @@ val appModules = module {
     factory { SourcesAdapter() }
 
     viewModel { SourcesViewModel(get()) }
+    viewModel { NewsListViewModel() }
 }

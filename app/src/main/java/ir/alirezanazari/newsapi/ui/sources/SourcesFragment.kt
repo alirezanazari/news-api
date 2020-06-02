@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import ir.alirezanazari.newsapi.R
+import ir.alirezanazari.newsapi.internal.Navigator
 import ir.alirezanazari.newsapi.ui.BaseFragment
 import kotlinx.android.synthetic.main.sources_fragment.*
 import org.koin.android.ext.android.inject
@@ -29,9 +30,15 @@ class SourcesFragment : BaseFragment() {
         viewModel.getSourcesList()
     }
 
-    private fun setupRecyclerView(){
+    private fun setupRecyclerView() {
         rvSources.apply {
             adapter = sourcesAdapter
+        }
+
+        sourcesAdapter.onItemClicked = {
+            if (activity != null) {
+                Navigator.openNewsList(it.id, it.name, activity!!.supportFragmentManager)
+            }
         }
     }
 
