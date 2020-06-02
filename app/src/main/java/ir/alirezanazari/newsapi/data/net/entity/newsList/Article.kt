@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Article(
     @SerializedName("source")
-    val source: Source,
+    val source: ArticleSource,
     @SerializedName("author")
     val author: String?,
     @SerializedName("title")

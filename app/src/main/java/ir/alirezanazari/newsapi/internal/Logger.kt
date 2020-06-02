@@ -19,7 +19,7 @@ class Logger {
         }
 
         fun showLog(text: String?) {
-            if (BuildConfig.DEBUG) Log.wtf("Vehicles Log", text)
+            if (BuildConfig.DEBUG) Log.wtf("News Log", text)
         }
     }
 }

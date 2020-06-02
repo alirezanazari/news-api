@@ -23,6 +23,9 @@ interface ArticlesDao {
     @Query("select source from $ARTICLES_TABLE limit 1")
     suspend fun getSavedSource(): String?
 
+    @Query("select addedDate from $ARTICLES_TABLE limit 1")
+    suspend fun getSavedTime(): String?
+
     @Query("delete from $ARTICLES_TABLE where date(addedDate) < date(:selectedDate)")
     suspend fun clear(selectedDate: LocalDateTime)
 

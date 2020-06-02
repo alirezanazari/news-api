@@ -8,6 +8,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import ir.alirezanazari.newsapi.R
+import ir.alirezanazari.newsapi.internal.Logger
 import ir.alirezanazari.newsapi.ui.BaseFragment
 import kotlinx.android.synthetic.main.news_list_fragment.*
 import org.koin.android.ext.android.inject
@@ -60,6 +61,9 @@ class NewsListFragment : BaseFragment() {
             viewModel.getNewsOfSource(mId , mCurrentPage)
         }
 
+        viewModel.newsResponse.observe(viewLifecycleOwner , Observer {
+            Logger.showLog("News response ${it.size}")
+        })
 
         viewModel.loaderVisibilityListener.observe(viewLifecycleOwner, Observer {
             it?.let { state ->

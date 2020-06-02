@@ -19,9 +19,9 @@ val appModules = module {
     single<NetworkDataManager> { NetworkDataManagerImpl(get()) }
     single { NewsDatabase(get()) }
 
-    factory<NewsRepository> { NewsRepositoryImpl(get() , get<NewsDatabase>().sourceDao()) }
+    factory<NewsRepository> { NewsRepositoryImpl(get() , get<NewsDatabase>().sourceDao(), get<NewsDatabase>().articleDao()) }
     factory { SourcesAdapter() }
 
     viewModel { SourcesViewModel(get()) }
-    viewModel { NewsListViewModel() }
+    viewModel { NewsListViewModel(get()) }
 }

@@ -26,6 +26,7 @@ class NetworkDataManagerImpl(
     override suspend fun getSourceNews(id: String, page: Int): List<Article>? {
         return try {
             val response = api.getNews(id, page).await()
+            Logger.showLog("server response ${response.articles.size} items")
             response.articles
         } catch (e: HttpException) {
             Logger.showLog("Error fetch articles : ${e.message()}")
