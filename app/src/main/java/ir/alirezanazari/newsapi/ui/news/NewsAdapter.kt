@@ -39,7 +39,7 @@ class NewsAdapter(
             itemView.apply {
                 tvTitle.text = item.title
                 tvDescription.text = item.description
-                tvAuthor.text = "- ${item.author}"
+                tvAuthor.text = if (item.author.isNullOrEmpty()) "" else "- ${item.author}"
                 imageLoader.load(ivPicture , item.urlToImage , R.drawable.placeholder)
             }
 
