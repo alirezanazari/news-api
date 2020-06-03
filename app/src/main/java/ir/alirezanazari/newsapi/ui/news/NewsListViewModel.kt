@@ -13,10 +13,12 @@ class NewsListViewModel(
     private val newsRepository: NewsRepository
 ) : BaseViewModel() {
 
+    var isLoading = false
     val newsResponse = SingleLiveEvent<List<Article>>()
 
     fun getNewsOfSource(id: String, page: Int) {
         viewModelScope.launch(Dispatchers.IO) {
+            isLoading = true
             setLoaderState(true)
             val response = newsRepository.getNewsList(id, page)
             if (response != null) {
@@ -25,6 +27,7 @@ class NewsListViewModel(
             } else {
                 setLoaderState(false, isEffectRetry = true)
             }
+            isLoading = false
         }
     }
 }
